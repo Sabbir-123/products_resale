@@ -1,6 +1,9 @@
 import CategoryDetails from "../Pages/CategoryDetails/CategoryDetails";
+import DashBoard from "../Pages/Dashboard/DashBoard";
+import MyOrders from "../Pages/Dashboard/User/MyOrders";
 import Login from "../Shared/Login/Login";
 import SignUp from "../Shared/SignUp/SignUp";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -35,6 +38,14 @@ const router = createBrowserRouter([
     
     
     ]
+    },
+    {
+        path: '/dashboard',
+        element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
+        children: [{
+            path: '/dashboard',
+            element: <MyOrders></MyOrders>
+        }]
     }
 ])
 

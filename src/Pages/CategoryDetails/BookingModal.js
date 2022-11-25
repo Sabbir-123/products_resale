@@ -3,7 +3,7 @@ import { AuthContext } from '../../Contexts/AuthProvider';
 import swal from 'sweetalert';
 
 const BookingModal = ({singlecategory, mobileBook, setMobileBook}) => {
-    const {picture,title,Seller_name,category_name,location,resale_price,buying_price, Year_of_purchase, Year_of_uses, the_time_it_posted,Verified, condition,number_of_seller,  details }= mobileBook;
+    const {picture,title,Seller_name,category_name,location,resale_price,buying_price, Year_of_purchase, Year_of_uses, the_time_it_posted,Verified, condition,number_of_seller,  details, bookingId }= mobileBook;
     const {user }= useContext(AuthContext);
     const date = new Date()
     console.log(date)
@@ -25,7 +25,8 @@ console.log(mobileBook)
             email,
             phone,
             price : resale_price,
-            location
+            location,
+            bookingId
         }
   
         fetch('http://localhost:8000/bookings', {
@@ -39,9 +40,9 @@ console.log(mobileBook)
         .then(data=>{
             console.log(data);
            if(data.acknowledged){
-            //   setMobile(null);
+            setMobileBook(null);
             swal('Booking Confirmed')
-          //   refetch();
+            // refetch();
            }
            else{
             swal(data.message)
@@ -71,10 +72,10 @@ console.log(mobileBook)
                         <input name="date" type="text" defaultValue={date} disabled placeholder="Your Name" className="input w-full input-bordered" />
                         <input name="email" type="email" defaultValue={user?.email} disabled readOnly placeholder="Email Address" className="input w-full input-bordered" />
                         <input name="price" type="text" defaultValue={resale_price} disabled className="input w-full input-bordered" />
-                       
+                        <input name="number" type="text" placeholder="Booking ID" defaultValue={bookingId} disabled className="input w-full input-bordered" />
                         <input name="phone" type="text" placeholder="Phone Number" className="input w-full input-bordered" />
                         <input name="location" type="text" placeholder="Meeting Location" className="input w-full input-bordered" />
-                        <br />
+                         <br />
                         <input className='btn btn-accent w-full' type="submit" value="Submit" />
                     </form>
                 </div>

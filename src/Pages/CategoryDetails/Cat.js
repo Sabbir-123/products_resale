@@ -1,6 +1,6 @@
 import React from "react";
 
-const Cat = ({ singlecategory, setMobileBook }) => {
+const Cat = ({ singlecategory , setMobileBook}) => {
   const {
     picture,
     title,
@@ -16,6 +16,7 @@ const Cat = ({ singlecategory, setMobileBook }) => {
     condition,
     number_of_seller,
     details,
+    bookingId
   } = singlecategory;
 
   return (
@@ -64,6 +65,7 @@ const Cat = ({ singlecategory, setMobileBook }) => {
               <h1>Address: {location} </h1>
               <h1>Number: {number_of_seller} </h1>
               <h1>Seller: {Verified} </h1>
+              <h1>BookingId: {bookingId} </h1>
               <div>
                 <label
                   disabled={singlecategory.length === 0}

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import swal from "sweetalert";
 import { AuthContext } from "../../Contexts/AuthProvider";
 
-
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
 
@@ -15,7 +14,7 @@ const Navbar = () => {
 
   const menuItems = (
     <>
-          <li>
+      <li>
         <Link to="/">Home</Link>
       </li>
       {/* <li>
@@ -30,9 +29,7 @@ const Navbar = () => {
             <Link to="/dashboard">Dashboard</Link>
           </li>
           <li>
-            <button 
-            onClick={handleLogout}
-            >Sign out</button>
+            <button onClick={handleLogout}>Sign out</button>
           </li>
         </>
       ) : (
@@ -71,29 +68,29 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/" className="btn btn-ghost normal-case text-xl">
-        কেনাবেচা ডট কম
+          কেনাবেচা ডট কম
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
       <label
-        htmlFor="dashboard-drawer"
+        htmlFor="dashboard"
         tabIndex={2}
-        className="btn btn-ghost lg:hidden"
+        className="btn btn-ghost "
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
           fill="none"
           viewBox="0 0 24 24"
+          stroke-width="1.5"
           stroke="currentColor"
+          class="w-6 h-6"
         >
           <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M4 6h16M4 12h8m-8 6h16"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
           />
         </svg>
       </label>

@@ -12,7 +12,7 @@ const CategoryDetails = () => {
 
   return (
     <div className="grid grid-cols-1 m-5 lg:grid-cols-3 md:grid-cols-2 gap-3">
-      {all.map((singlecategory) => (
+      {all.map((singlecategory, i) => (
         <Cat
           key={singlecategory._id}
           singlecategory={singlecategory}
