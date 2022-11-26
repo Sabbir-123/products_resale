@@ -3,24 +3,24 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
 
 import Loading from '../../Shared/Loading/Loading';
-import useAdmin from '../../useHooks/useAdmin';
+import useSeller from '../../useHooks/useSeller';
 
 
 const AdminRoute = ({children}) => {
 
     const {user, loading} = useContext(AuthContext);
-    const [isAdmin, isAdminLoading]= useAdmin(user?.email)
+    const [isSeller, isSellerLoading]= useSeller(user?.email)
     const location = useLocation();
 
     if(loading
          || 
-         isAdminLoading
+         isSellerLoading
          ){
         return <Loading></Loading>
     }
 
     if (user
-         && isAdmin
+         && isSeller
          ){
         return children;
     }

@@ -6,9 +6,8 @@ import { AuthContext } from '../../Contexts/AuthProvider';
 import useToken from '../../useHooks/useToken';
 
 
+const AddProduct = () => {
 
-
-const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { createUser, updateUser, signinGoogle,setLoading } = useContext(AuthContext);
     const [signUpError, setSignUPError] = useState('')
@@ -75,9 +74,10 @@ if(token){
           }
 
 
-        
+       
     return (
-        <div className='h-[800px] flex justify-center items-center'>
+        <div>
+             <div className='h-[800px] flex justify-center items-center'>
             <div className='w-96 p-7 rounded-lg border'>
                 <h2 className='text-xl text-center'>Sign Up</h2>
                 <form onSubmit={handleSubmit(handleSignUp)}>
@@ -120,7 +120,8 @@ if(token){
 
             </div>
         </div>
+        </div>
     );
 };
 
-export default SignUp;
+export default AddProduct;

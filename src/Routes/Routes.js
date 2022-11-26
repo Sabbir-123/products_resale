@@ -1,8 +1,10 @@
 import CategoryDetails from "../Pages/CategoryDetails/CategoryDetails";
+import AllUsers from "../Pages/Dashboard/Admin/AllUsers";
 import DashBoard from "../Pages/Dashboard/DashBoard";
 import MyOrders from "../Pages/Dashboard/User/MyOrders";
 import Login from "../Shared/Login/Login";
 import SignUp from "../Shared/SignUp/SignUp";
+import AdminRoute from "./AdminRoute/AdminRoute";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 
@@ -32,7 +34,7 @@ const router = createBrowserRouter([
     
             {
             path: '/category/:id',
-            element:<CategoryDetails></CategoryDetails>,
+            element:<PrivateRoute><CategoryDetails></CategoryDetails></PrivateRoute>,
             loader: ({params})=>fetch(`http://localhost:8000/mobiles/${params.id}`)
         },
     
@@ -42,10 +44,17 @@ const router = createBrowserRouter([
     {
         path: '/dashboard',
         element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
-        children: [{
+        children: [
+            {
             path: '/dashboard',
             element: <MyOrders></MyOrders>
-        }]
+        },
+            {
+            path: '/dashboard/users',
+            element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+        },
+    
+    ]
     }
 ])
 

@@ -5,7 +5,8 @@ import swal from 'sweetalert';
 const BookingModal = ({singlecategory, mobileBook, setMobileBook}) => {
     const {picture,title,Seller_name,category_name,location,resale_price,buying_price, Year_of_purchase, Year_of_uses, the_time_it_posted,Verified, condition,number_of_seller,  details, bookingId }= mobileBook;
     const {user }= useContext(AuthContext);
-    const date = new Date()
+    const date = new Date().toLocaleString()
+    console.log(date)
     console.log(date)
 
     // const {title}= mobileBook;
@@ -26,7 +27,8 @@ console.log(mobileBook)
             phone,
             price : resale_price,
             location,
-            bookingId
+            bookingId,
+            picture
         }
   
         fetch('http://localhost:8000/bookings', {

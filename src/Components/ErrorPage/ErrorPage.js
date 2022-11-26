@@ -1,10 +1,10 @@
 import React from 'react';
-import Error1 from '../../Assets/ErrorPic/Error1.png'
+import Err from '../../Assets/ErrorPic/Err.jpg'
 
 const ErrorPage = () => {
     return (
         <div className='error'>
-            <img src={Error1} alt="" />
+            <img src={Err} alt="" />
         </div>
     );
 };
