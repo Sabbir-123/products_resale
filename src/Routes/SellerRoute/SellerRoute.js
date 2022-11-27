@@ -6,7 +6,7 @@ import Loading from '../../Shared/Loading/Loading';
 import useSeller from '../../useHooks/useSeller';
 
 
-const AdminRoute = ({children}) => {
+const SellerRoute = ({children}) => {
 
     const {user, loading} = useContext(AuthContext);
     const [isSeller, isSellerLoading]= useSeller(user?.email)
@@ -28,4 +28,4 @@ const AdminRoute = ({children}) => {
     return <Navigate to="/login" state={{from: location}} replace></Navigate>;
 };
 
-export default AdminRoute;
+export default SellerRoute;

@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../Contexts/AuthProvider";
+import useSeller from "../../useHooks/useSeller";
 
 const Cat = ({ singlecategory , setMobileBook}) => {
+    const { user } = useContext(AuthContext);
+    const [isSeller] = useSeller(user?.email)
   const {
     picture,
     title,
@@ -12,7 +16,6 @@ const Cat = ({ singlecategory , setMobileBook}) => {
     Year_of_purchase,
     Year_of_uses,
     the_time_it_posted,
-    Verified,
     condition,
     number_of_seller,
     details,
@@ -64,17 +67,19 @@ const Cat = ({ singlecategory , setMobileBook}) => {
               <h1>Uses: {Year_of_uses} </h1>
               <h1>Address: {location} </h1>
               <h1>Number: {number_of_seller} </h1>
-              <h1>Seller: {Verified} </h1>
+              <h1>Seller: {singlecategory?.Verified} </h1>
               <h1>BookingId: {bookingId} </h1>
               <div>
-                <label
-                  disabled={singlecategory.length === 0}
-                  htmlFor="booking-modal"
-                  className="btn btn-primary text-white"
-                  onClick={() => setMobileBook(singlecategory)}
-                >
-                  Book{" "}
-                </label>
+               {
+                !isSeller &&  <label
+                disabled={singlecategory.length === 0}
+                htmlFor="booking-modal"
+                className="btn btn-primary text-white"
+                onClick={() => setMobileBook(singlecategory)}
+              >
+                Book{" "}
+              </label> 
+               }
               </div>
             </div>
           </div>
