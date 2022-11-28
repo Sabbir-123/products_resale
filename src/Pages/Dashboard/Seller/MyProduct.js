@@ -42,6 +42,7 @@ const MyProduct = () => {
               <th>Product Image</th>
               <th>Title</th>
               <th>Stock</th>
+              <th>Available</th>
               <th>Advertise</th>
             </tr>
           </thead>

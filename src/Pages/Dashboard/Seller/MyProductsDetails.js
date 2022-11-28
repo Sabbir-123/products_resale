@@ -30,6 +30,11 @@ const [advertised, setAdvertised ] = useState('')
               <td>"{singleMobile.title}"</td>
               <td>{singleMobile.stock} pcs</td>
               <td>
+                {singleMobile.stock === 0 &&  <p>Sold</p>}
+                {singleMobile.stock >0 &&  <p>Avaialble</p>}
+              
+              </td>
+              <td>
                 {
                     !advertised && <button onClick={handleAdvertise} className="btn btn-primary btn-xs">Advertise</button>
                 }
