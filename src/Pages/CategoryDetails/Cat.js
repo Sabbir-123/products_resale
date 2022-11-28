@@ -57,7 +57,9 @@ const Cat = ({ singlecategory , setMobileBook}) => {
    else{
     swal(data.message)
    }
-  })}
+  })
+
+}
 
 
   const handleReport=data=>{
@@ -65,6 +67,27 @@ const Cat = ({ singlecategory , setMobileBook}) => {
       MobileName : data.title,
       Report : 'This is fake'
     }
+
+    fetch('https://localhost:8000/report', {
+      method: "POST",
+      headers: {
+          'content-type': 'application/json'
+      },
+      body: JSON.stringify(report)
+    })
+    .then(res => res.json())
+    .then(data=>{
+      console.log(data);
+     if(data.acknowledged){
+  
+      swal('Reported Confirmed')
+      // refetch();
+     }
+     else{
+      swal(data.message)
+     }
+    })
+    
   }
 
   return (

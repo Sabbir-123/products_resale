@@ -1,6 +1,7 @@
 import Blogs from "../Pages/Blogs/Blogs";
 import CategoryDetails from "../Pages/CategoryDetails/CategoryDetails";
 import AllUsers from "../Pages/Dashboard/Admin/AllUsers";
+import ShowReport from "../Pages/Dashboard/Admin/ShowReport";
 import DashBoard from "../Pages/Dashboard/DashBoard";
 import AddProduct from "../Pages/Dashboard/Seller/AddProduct";
 import MyBuyers from "../Pages/Dashboard/Seller/MyBuyers";
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
             {
             path: '/dashboard/users',
             element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+        },
+            {
+            path: '/dashboard/report',
+            element: <AdminRoute><ShowReport></ShowReport></AdminRoute>
         },
             {
             path: '/dashboard/addProduct',
