@@ -31,7 +31,7 @@ console.log(mobileBook)
             picture
         }
   
-        fetch('http://localhost:8000/bookings', {
+        fetch('https://server-assignment-12.vercel.app/bookings', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

@@ -1,5 +1,5 @@
 # কেনাবেচা ডট কম 
-# Live Link : 
+# Live Link : https://resale-market-d3fe2.web.app/
 
 # Details
 * A simple Ecommerce website where you can buy mobile
@@ -9,6 +9,13 @@
 * An Admin can remove any user and seller
 * An Admin can see the reported items
 
+
+# Admin
+* email: a1a@aa.com
+* pass: 123456
+# Seller
+* email: za@za.com
+* pass: 123456
 
 <!-- Admin
 email: a1a@aa.com

@@ -5,7 +5,7 @@ import swal from "sweetalert";
 import useSeller from "../../../useHooks/useSeller";
 
 const Advertisement = () => {
-  const baseURL = "http://localhost:8000/advertise";
+  const baseURL = "https://server-assignment-12.vercel.app/advertise";
   const [post, setPost] = React.useState(null);
   const {user } = useContext(AuthContext)
   const date = new Date().toLocaleString()
@@ -45,7 +45,7 @@ const Advertisement = () => {
     }
 
 
-    fetch('http://localhost:8000/bookings', {
+    fetch('https://server-assignment-12.vercel.app/bookings', {
         method: "POST",
         headers: {
             'content-type': 'application/json'
@@ -81,7 +81,7 @@ const handleWishlisted = data =>{
   
 }
 
-fetch('http://localhost:8000/wishlist', {
+fetch('https://server-assignment-12.vercel.app/wishlist', {
   method: "POST",
   headers: {
       'content-type': 'application/json'

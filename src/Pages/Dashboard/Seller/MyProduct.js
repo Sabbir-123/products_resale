@@ -7,7 +7,7 @@ import MyProductsDetails from './MyProductsDetails';
 
 const MyProduct = () => {
     const {user} = useContext(AuthContext)
-    const url = `http://localhost:8000/addedbyseller?email=${user?.email}`;
+    const url = `https://server-assignment-12.vercel.app/addedbyseller?email=${user?.email}`;
     const {data: mobiles= [] }= useQuery({
         queryKey: ['mobiles', user?.email],
         queryFn: async ()=>{

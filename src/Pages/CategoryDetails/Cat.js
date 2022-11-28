@@ -39,7 +39,7 @@ const Cat = ({ singlecategory , setMobileBook}) => {
     
   }
   
-  fetch('http://localhost:8000/wishlist', {
+  fetch('https://server-assignment-12.vercel.app/wishlist', {
     method: "POST",
     headers: {
         'content-type': 'application/json'

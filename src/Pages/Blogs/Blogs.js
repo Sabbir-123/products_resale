@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
 const Blogs = () => {
-  const url = `http://localhost:8000/blogs`;
+  const url = `https://server-assignment-12.vercel.app/blogs`;
   const { data: blogs = [] } = useQuery({
     queryKey: ["blogs"],
     queryFn: async () => {

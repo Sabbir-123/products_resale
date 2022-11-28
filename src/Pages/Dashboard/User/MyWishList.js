@@ -6,7 +6,7 @@ import WishDetails from './WishDetails';
 const MyWishList = () => {
 
     const {user} = useContext(AuthContext)
-    const url = `http://localhost:8000/wishlist?email=${user?.email}`;
+    const url = `https://server-assignment-12.vercel.app/wishlist?email=${user?.email}`;
     const {data: wishlists= []}= useQuery({
         queryKey: ['bookings', user?.email],
         queryFn: async ()=>{

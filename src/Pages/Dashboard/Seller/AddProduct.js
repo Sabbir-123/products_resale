@@ -61,7 +61,7 @@ console.log(img)
 
         // save mobiles into mobiles db
 
-        fetch('http://localhost:8000/mobiles', {
+        fetch('https://server-assignment-12.vercel.app/mobiles', {
                 method: 'POST',
                 headers: {
                     'content-type' : 'application/json',

@@ -48,7 +48,7 @@ if(token){
 
     const savedUser =(name ,email, role)=>{
         const user = {name, email, role};
-        fetch('http://localhost:8000/usersall', 
+        fetch('https://server-assignment-12.vercel.app/usersall', 
         {
             method: 'POST',
             headers: {

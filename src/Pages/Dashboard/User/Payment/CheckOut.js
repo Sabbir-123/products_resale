@@ -1,7 +1,7 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
 
-const Checkout = ({paydetails}) => {
+const Checkout = ({ paydetails }) => {
   const [cardError, setCardError] = useState("");
   const [success, setSuccess] = useState("");
   const [processing, setProcessing] = useState(false);
@@ -13,7 +13,7 @@ const Checkout = ({paydetails}) => {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("http://localhost:8000/create-payment-intent", {
+    fetch("https://server-assignment-12.vercel.app/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +52,7 @@ const Checkout = ({paydetails}) => {
       setCardError("");
       console.log("[PaymentMethod]", paymentMethod);
     }
-    setSuccess('');
+    setSuccess("");
     setProcessing(true);
 
     const { paymentIntent, error: confirmError } =
@@ -65,42 +65,41 @@ const Checkout = ({paydetails}) => {
           },
         },
       });
-      if(confirmError){
-        setCardError(confirmError.message);
-        return;
-      }
-      if(paymentIntent.status === "succeeded"){
-
-const payment={
-price, 
-transaction: paymentIntent.id,
-email, 
-bookingId: _id
-}
-fetch('http://localhost:8000/payments', {
-    method: 'POST',
-    headers: {
-        'content-type': 'application/json',
-        authorization: `bearer ${localStorage.getItem('accessToken')}`
-    },
-    body: JSON.stringify(payment)
-}).then(res=>res.json())
-.then(data =>{
-    if(data.insertedId){
-        setSuccess('Congrats, Payment Completed')
-        settransaction(paymentIntent.id)
+    if (confirmError) {
+      setCardError(confirmError.message);
+      return;
     }
-})
-
-      }
-      console.log(paymentIntent)
-      setProcessing(false)
+    if (paymentIntent.status === "succeeded") {
+      const payment = {
+        price,
+        transaction: paymentIntent.id,
+        email,
+        bookingId: _id,
+      };
+      fetch("https://server-assignment-12.vercel.app/payments", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify(payment),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            setSuccess("Congrats, Payment Completed");
+            settransaction(paymentIntent.id);
+          }
+        });
+    }
+    console.log(paymentIntent);
+    setProcessing(false);
   };
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
         <CardElement
-          className='w-96 bg-indigo-700   p-5'
+          className="w-96 bg-indigo-700   p-5"
           options={{
             style: {
               base: {
@@ -125,13 +124,15 @@ fetch('http://localhost:8000/payments', {
         </button>
       </form>
       <p className="text-red-500"> {cardError}</p>
-      {
-        success && <div>
-            <p className="text-green-700"> {success}</p>
-            <p><span className="text-black">Transaction ID:</span> <span className="text-blue-500">{transaction}</span></p>
-            
+      {success && (
+        <div>
+          <p className="text-green-700"> {success}</p>
+          <p>
+            <span className="text-black">Transaction ID:</span>{" "}
+            <span className="text-blue-500">{transaction}</span>
+          </p>
         </div>
-      }
+      )}
     </div>
   );
 };

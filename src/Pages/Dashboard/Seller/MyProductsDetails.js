@@ -4,7 +4,7 @@ import swal from 'sweetalert';
 const MyProductsDetails = ({singleMobile}) => {
 const [advertised, setAdvertised ] = useState('')
     const handleAdvertise= ()=>{
-        fetch('http://localhost:8000/advertise', {
+        fetch('https://server-assignment-12.vercel.app/advertise', {
             method: 'POST',
             headers: {
                 'content-type' : 'application/json',
