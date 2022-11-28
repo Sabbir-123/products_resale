@@ -1,4 +1,11 @@
-/* .error{
-    background: #000;
-    background-image: url(../../Assets/ErrorPic/Error1.png);
-} */
+
+
+.error{
+    background-image: url(../../Assets/ErrorPic/Err.jpg);
+    background-repeat: no-repeat;
+   background-size:100% 100%;
+    background-position: center;
+    width: 100%;
+    min-height: 85vw;
+    min-height:95vh ;
+}

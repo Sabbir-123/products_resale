@@ -1,10 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState} from "react";
+import swal from "sweetalert";
 import { AuthContext } from "../../Contexts/AuthProvider";
 import useSeller from "../../useHooks/useSeller";
 
 const Cat = ({ singlecategory , setMobileBook}) => {
+  const [wishlist, setWishList] = useState('');
     const { user } = useContext(AuthContext);
     const [isSeller] = useSeller(user?.email)
+    const date = new Date().toLocaleString()
+
   const {
     picture,
     title,
@@ -21,6 +25,39 @@ const Cat = ({ singlecategory , setMobileBook}) => {
     details,
     bookingId
   } = singlecategory;
+
+  const handleWishlisted = data =>{
+    const wishlist = {
+      wishlistedTime: date,
+      MobileName : data.title,
+      buyer: user?.displayName,
+      email: user?.email,
+      price : data.resale_price,
+      wishlistedID: data.bookindId,
+      picture: data.picture
+    
+    
+  }
+  
+  fetch('http://localhost:8000/wishlist', {
+    method: "POST",
+    headers: {
+        'content-type': 'application/json'
+    },
+    body: JSON.stringify(wishlist)
+  })
+  .then(res => res.json())
+  .then(data=>{
+    console.log(data);
+   if(data.acknowledged){
+
+    swal('Wishlisted Confirmed')
+    // refetch();
+   }
+   else{
+    swal(data.message)
+   }
+  })}
 
   return (
     <div>
@@ -80,6 +117,17 @@ const Cat = ({ singlecategory , setMobileBook}) => {
                 Book{" "}
               </label> 
                }
+               {
+                !isSeller &&  <label
+                disabled={singlecategory.length === 0}
+                htmlFor="booking-modal"
+                className="btn btn-primary ml-2 text-white"
+                onClick={() => handleWishlisted(singlecategory)}
+              >
+                Add To Wishlist{" "}
+              </label> 
+               }
+
               </div>
             </div>
           </div>

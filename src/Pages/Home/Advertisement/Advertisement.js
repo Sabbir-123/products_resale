@@ -70,12 +70,13 @@ const Advertisement = () => {
 
 const handleWishlisted = data =>{
   const wishlist = {
-    bookingTime: date,
-    MobileName : newBooking.title,
+    wishlistedTime: date,
+    MobileName : data.title,
     buyer: user?.displayName,
     email: user?.email,
-    price : newBooking.resale_price,
-    newBooking: newBooking.newBooking,
+    price : data.resale_price,
+    wishlistedID: data.bookindId,
+    picture: data.picture
   
   
 }
