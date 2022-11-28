@@ -62,33 +62,33 @@ const Cat = ({ singlecategory , setMobileBook}) => {
 }
 
 
-  const handleReport=data=>{
-    const report ={
-      MobileName : data.title,
-      Report : 'This is fake'
-    }
+  // const handleReport=data=>{
+  //   const report ={
+  //     MobileName : data.title,
+  //     Report : 'This is fake'
+  //   }
 
-    fetch('https://localhost:8000/report', {
-      method: "POST",
-      headers: {
-          'content-type': 'application/json'
-      },
-      body: JSON.stringify(report)
-    })
-    .then(res => res.json())
-    .then(data=>{
-      console.log(data);
-     if(data.acknowledged){
+  //   fetch('https://localhost:8000/report', {
+  //     method: "POST",
+  //     headers: {
+  //         'content-type': 'application/json'
+  //     },
+  //     body: JSON.stringify(report)
+  //   })
+  //   .then(res => res.json())
+  //   .then(data=>{
+  //     console.log(data);
+  //    if(data.acknowledged){
   
-      swal('Reported Confirmed')
-      // refetch();
-     }
-     else{
-      swal(data.message)
-     }
-    })
+  //     swal('Reported Confirmed')
+  //     // refetch();
+  //    }
+  //    else{
+  //     swal(data.message)
+  //    }
+  //   })
     
-  }
+  // }
 
   return (
     <div>
@@ -163,7 +163,7 @@ const Cat = ({ singlecategory , setMobileBook}) => {
                 disabled={singlecategory.length === 0}
                 htmlFor="booking-modal"
                 className="btn btn-primary ml-2 text-white"
-                onClick={() => handleReport(singlecategory)}
+                // onClick={() => handleReport(singlecategory)}
               >
                 Report{" "}
               </label> 
