@@ -51,11 +51,6 @@ console.log(mobileBook)
            }
         })
         
-        // TODO: send data to the server
-        // and once data is saved then close the modal 
-        // and display success toast
-        console.log(booking);
-        
     }
   
     return (
@@ -69,7 +64,6 @@ console.log(mobileBook)
                         {title}
                         </h3>
                     <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 mt-10'>
-                        {/* <input type="text" disabled value={datetime} className="input w-full input-bordered " /> */}
                         <input name="name" type="text" defaultValue={user?.displayName} disabled placeholder="Your Name" className="input w-full input-bordered" />
                         <input name="date" type="text" defaultValue={date} disabled placeholder="Your Name" className="input w-full input-bordered" />
                         <input name="email" type="email" defaultValue={user?.email} disabled readOnly placeholder="Email Address" className="input w-full input-bordered" />

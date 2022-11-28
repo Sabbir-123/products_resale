@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import swal from 'sweetalert';
 
 const MyProductsDetails = ({singleMobile}) => {
-    const [loading, setLoading] = useState(true)
 const [advertised, setAdvertised ] = useState('')
     const handleAdvertise= ()=>{
         fetch('http://localhost:8000/advertise', {
@@ -16,19 +15,14 @@ const [advertised, setAdvertised ] = useState('')
         })
         .then(res=>res.json())
         .then(result => {
-            if(loading){
-                setLoading(false)
-                console.log(result)
-                setAdvertised(result)
-                if(result.acknowledged){
-                    swal('Mobile has been published to the advertise section')
-                }
-                else{
-                    swal('You already have a advertisement for this item')
-                }
+            console.log(result)
+            setAdvertised(result.acknowledged)
+            if(result.acknowledged){
+                swal('Mobile has been published to the advertise section')
             }
-          
-          
+            else{
+                swal('You already have a advertisement for this item')
+            }
         })
     }
     return (

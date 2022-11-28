@@ -68,6 +68,62 @@ const Advertisement = () => {
     
 }
 
+const handleWishlisted = data =>{
+  const wishlist = {
+    bookingTime: date,
+    MobileName : newBooking.title,
+    buyer: user?.displayName,
+    email: user?.email,
+    price : newBooking.resale_price,
+    newBooking: newBooking.newBooking,
+  
+  
+}
+
+fetch('http://localhost:8000/wishlist', {
+  method: "POST",
+  headers: {
+      'content-type': 'application/json'
+  },
+  body: JSON.stringify(wishlist)
+})
+.then(res => res.json())
+.then(data=>{
+  console.log(data);
+ if(data.acknowledged){
+  // setMobileBook(null);
+  swal('Wishlisted Confirmed')
+  // refetch();
+ }
+ else{
+  swal(data.message)
+ }
+})}
+//   const handlewishlist = event => {
+//     event.preventDefault();
+//     const form = event.target;
+//     const name = form.name.value;
+//     const email = form.email.value;
+//     const phone = form.phone.value;
+//     const location = form.location.value;
+//     const wishlist = {
+//         bookingTime: date,
+//         MobileName : newBooking.title,
+//         buyer: name,
+//         email,
+//         phone,
+//         price : newBooking.resale_price,
+//         location,
+//         newBooking: newBooking.newBooking,
+//         picture: newBooking.picture
+//     }
+
+
+  
+    
+    
+// }
+
 
 
 
@@ -92,12 +148,6 @@ const Advertisement = () => {
                   {ad?.title}
                 </h1>
 
-                {/* <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                  {(ad?.details).length > 50
-                    ? ad?.details.slice(0, 50) + "..."
-                    : ad?.details}
-                </p> */}
-
                 <div class="flex justify-between mt-3 item-center">
                   <h1 class="text-lg font-bold text-gray-700 dark:text-gray-200 ">
                     Price: {ad?.resale_price}$
@@ -105,9 +155,9 @@ const Advertisement = () => {
                 </div>
                 <div class="flex justify-between mt-3 item-center gap-3">
                  { !isSeller && <label
-                // disabled={singlecategory.length === 0}
+                disabled={ad.length === 0}
                 htmlFor="booking-modal"
-                className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded  hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600"
+                className="px-1 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded  hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600"
                 onClick={() => handleAdvertiseModal(ad)}
               >
                 Book{" "}
@@ -137,9 +187,8 @@ const Advertisement = () => {
             </div>
                   <label
                 // disabled={singlecategory.length === 0}
-                htmlFor="booking-modal"
-                className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded  hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600"
-                // onClick={() => handleAdvertiseModal(ad)}
+                className="px-1 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded  hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600"
+                onClick={() => handleWishlisted(ad)}
               >
                Add to Wishlist{" "}
               </label> 

@@ -21,10 +21,15 @@ const DashBoard = () => {
         <div className="drawer-side">
           <label htmlFor="dashboard" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-            {!isSeller &&
+            {!isSeller && 
+           <>
             <li>
             <Link to={"/dashboard"}>My Orders</Link>
           </li>
+            <li>
+            <Link to={"/dashboard/wishlist"}>My Wishlist</Link>
+          </li>
+           </>
             }
             {
                 isAdmin && 
