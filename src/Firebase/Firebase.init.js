@@ -11,7 +11,7 @@ const firebaseConfig = {
   // storageBucket: "resale-market-d3fe2.appspot.com",
   // messagingSenderId: "832219195401",
   // appId: "1:832219195401:web:9aac1e66d4c2ba1d7c70d8"
-
+  
 
   apiKey: process.env.REACT_APP_apiKey,
   authDomain: process.env.REACT_APP_authDomain,

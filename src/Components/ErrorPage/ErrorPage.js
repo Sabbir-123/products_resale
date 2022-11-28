@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
+import { useRouteError } from 'react-router-dom';
 import swal from 'sweetalert';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import './Error.css'
 
 
 const ErrorPage = () => {
+  const error = useRouteError()
 
     const {logout} = useContext(AuthContext)
 
@@ -21,6 +23,7 @@ const ErrorPage = () => {
           <span> <button onClick={handleLogout}> Log Out </button> </span>
             and Sign In Back
            </h1>
+           <h1>Error: {error?.statusText || error.message}</h1>
         </div>
     );
 };
