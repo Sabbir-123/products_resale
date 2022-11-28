@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const WishDetails = ({ perWishlist }) => {
     
   console.log(perWishlist);
-  const { price, email, MobileName, picture } = perWishlist;
+  const { _id,price, email, MobileName, picture } = perWishlist;
   return (
     <div class="flex w-full flex-col items-center justify-center max-w-sm mx-auto">
       <div class="h-64  w-96 bg-gray-300 bg-center bg-cover rounded-lg shadow-md">
@@ -19,9 +20,11 @@ const WishDetails = ({ perWishlist }) => {
           <span class="font-bold text-gray-800 dark:text-gray-200">
             {price}
           </span>
+          <Link to={`/dashboard/payment/${_id}`}>
           <button class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">
-            Buy Now
+            Add to Cart
           </button>
+          </Link>
         </div>
       </div>
     </div>

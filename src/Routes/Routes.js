@@ -1,3 +1,4 @@
+import Blogs from "../Pages/Blogs/Blogs";
 import CategoryDetails from "../Pages/CategoryDetails/CategoryDetails";
 import AllUsers from "../Pages/Dashboard/Admin/AllUsers";
 import DashBoard from "../Pages/Dashboard/DashBoard";
@@ -6,6 +7,7 @@ import MyBuyers from "../Pages/Dashboard/Seller/MyBuyers";
 import MyProduct from "../Pages/Dashboard/Seller/MyProduct";
 import MyOrders from "../Pages/Dashboard/User/MyOrders";
 import MyWishList from "../Pages/Dashboard/User/MyWishList";
+import Payment from "../Pages/Dashboard/User/Payment/Payment";
 import Login from "../Shared/Login/Login";
 import SignUp from "../Shared/SignUp/SignUp";
 import AdminRoute from "./AdminRoute/AdminRoute";
@@ -36,6 +38,10 @@ const router = createBrowserRouter([
             path: '/register',
             element:<SignUp></SignUp>
         },
+            {
+            path: '/blogs',
+            element:<Blogs></Blogs>
+        },
     
             {
             path: '/category/:id',
@@ -53,6 +59,11 @@ const router = createBrowserRouter([
             {
             path: '/dashboard',
             element: <PrivateRoute><MyOrders></MyOrders></PrivateRoute>
+        },
+        {
+            path: '/dashboard/payment/:id',
+            element:<PrivateRoute><Payment></Payment></PrivateRoute>, 
+            loader: ({params})=>fetch(`http://localhost:8000/bookings/${params.id}`)
         },
             {
             path: '/dashboard/wishlist',

@@ -186,13 +186,15 @@ fetch('http://localhost:8000/wishlist', {
                     </form>
                 </div>
             </div>
-                  <label
-                // disabled={singlecategory.length === 0}
-                className="px-1 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded  hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600"
-                onClick={() => handleWishlisted(ad)}
-              >
-               Add to Wishlist{" "}
-              </label> 
+          {
+              !isSeller &&  <label
+              // disabled={singlecategory.length === 0}
+              className="px-1 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded  hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600"
+              onClick={() => handleWishlisted(ad)}
+            >
+             Add to Wishlist{" "}
+            </label> 
+          }
                  
                 </div>
               </div>

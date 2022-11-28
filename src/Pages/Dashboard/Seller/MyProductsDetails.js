@@ -16,12 +16,10 @@ const [advertised, setAdvertised ] = useState('')
         .then(res=>res.json())
         .then(result => {
             console.log(result)
-            setAdvertised(result.acknowledged)
+            setAdvertised(result)
+            console.log(advertised)
             if(result.acknowledged){
                 swal('Mobile has been published to the advertise section')
-            }
-            else{
-                swal('You already have a advertisement for this item')
             }
         })
     }
@@ -34,6 +32,9 @@ const [advertised, setAdvertised ] = useState('')
               <td>
                 {
                     !advertised && <button onClick={handleAdvertise} className="btn btn-primary btn-xs">Advertise</button>
+                }
+                {
+                    advertised && <p>Advertised</p>
                 }
                 </td>
             </tr>
