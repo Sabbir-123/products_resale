@@ -59,6 +59,14 @@ const Cat = ({ singlecategory , setMobileBook}) => {
    }
   })}
 
+
+  const handleReport=data=>{
+    const report ={
+      MobileName : data.title,
+      Report : 'This is fake'
+    }
+  }
+
   return (
     <div>
       <div key={singlecategory._id}>
@@ -124,7 +132,17 @@ const Cat = ({ singlecategory , setMobileBook}) => {
                 className="btn btn-primary ml-2 text-white"
                 onClick={() => handleWishlisted(singlecategory)}
               >
-                Add To Wishlist{" "}
+                Add To Wish{" "}
+              </label> 
+               }
+               {
+                !isSeller &&  <label
+                disabled={singlecategory.length === 0}
+                htmlFor="booking-modal"
+                className="btn btn-primary ml-2 text-white"
+                onClick={() => handleReport(singlecategory)}
+              >
+                Report{" "}
               </label> 
                }
 
