@@ -1,6 +1,8 @@
 # কেনাবেচা ডট কম 
 # Live Link : https://resale-market-d3fe2.web.app/
 
+# Server Repo: https://github.com/Sabbir-123/products_resale_server
+
 # Details
 * A simple Ecommerce website where you can buy mobile
 * You can add to card you product
