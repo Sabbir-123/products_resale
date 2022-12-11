@@ -100,30 +100,8 @@ fetch('https://server-assignment-12.vercel.app/wishlist', {
   swal(data.message)
  }
 })}
-//   const handlewishlist = event => {
-//     event.preventDefault();
-//     const form = event.target;
-//     const name = form.name.value;
-//     const email = form.email.value;
-//     const phone = form.phone.value;
-//     const location = form.location.value;
-//     const wishlist = {
-//         bookingTime: date,
-//         MobileName : newBooking.title,
-//         buyer: name,
-//         email,
-//         phone,
-//         price : newBooking.resale_price,
-//         location,
-//         newBooking: newBooking.newBooking,
-//         picture: newBooking.picture
-//     }
 
 
-  
-    
-    
-// }
 
 
 

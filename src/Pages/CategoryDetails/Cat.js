@@ -149,6 +149,7 @@ const Cat = ({ singlecategory , setMobileBook}) => {
                 Book{" "}
               </label> 
                }
+               
                {
                 !isSeller &&  <label
                 disabled={singlecategory.length === 0}
