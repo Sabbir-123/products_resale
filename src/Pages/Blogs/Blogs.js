@@ -26,13 +26,13 @@ const Blogs = () => {
             <div class="mt-2">
               <h2
                 href="#"
-                class="text-4xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline"
+                class="text-4xl font-bold  text-white  hover:underline"
                 tabindex="0"
                 role="link"
               >
                 {blog.title}
               </h2>
-              <p class="mt-2 text-gray-600 dark:text-gray-300">
+              <p class="mt-2  text-gray-300">
                 {blog.details}
               </p>
             </div>
