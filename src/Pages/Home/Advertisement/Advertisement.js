@@ -92,9 +92,7 @@ fetch('https://server-assignment-12.vercel.app/wishlist', {
 .then(data=>{
   console.log(data);
  if(data.acknowledged){
-  // setMobileBook(null);
   swal('Wishlisted Confirmed')
-  // refetch();
  }
  else{
   swal(data.message)
@@ -133,7 +131,7 @@ fetch('https://server-assignment-12.vercel.app/wishlist', {
                   </h1>
                 </div>
                 <div class="flex justify-between mt-3 item-center gap-3">
-                 { !isSeller && <label
+                 { !isSeller && user && <label
                 disabled={ad.length === 0}
                 htmlFor="booking-modal"
                 className="px-1 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded  hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600"
@@ -151,12 +149,11 @@ fetch('https://server-assignment-12.vercel.app/wishlist', {
                         {ad?.title}
                         </h3>
                     <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 mt-10'>
-                        {/* <input type="text" disabled value={datetime} className="input w-full input-bordered " /> */}
                         <input name="name" type="text" defaultValue={user?.displayName} disabled placeholder="Your Name" className="input w-full input-bordered" />
                         <input name="date" type="text" defaultValue={date} disabled placeholder="Your Name" className="input w-full input-bordered" />
                         <input name="email" type="email" defaultValue={user?.email} disabled readOnly placeholder="Email Address" className="input w-full input-bordered" />
                         <input name="price" type="text" defaultValue={ad?.resale_price} disabled className="input w-full input-bordered" />
-                        <input name="number" type="text" placeholder="Booking ID" defaultValue={(i+15)*2}  className="input w-full input-bordered" />
+                        <input name="bookingId" type="text" placeholder="Booking ID" defaultValue={Math.random()}  className="input w-full input-bordered" />
                         <input name="phone" type="text" placeholder="Phone Number" className="input w-full input-bordered" />
                         <input name="location" type="text" placeholder="Meeting Location" className="input w-full input-bordered" />
                          <br />
@@ -165,8 +162,7 @@ fetch('https://server-assignment-12.vercel.app/wishlist', {
                 </div>
             </div>
           {
-              !isSeller &&  <label
-              // disabled={singlecategory.length === 0}
+              !isSeller && user &&  <label
               className="px-1 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded  hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600"
               onClick={() => handleWishlisted(ad)}
             >

@@ -120,13 +120,13 @@ const Cat = ({ singlecategory , setMobileBook}) => {
           </div>
 
           <div class="px-6 py-4">
-            <h1 class="text-xl font-semibold  text-white">
+            <h1 class="text-xl font-semibold  text-black">
               Seller: {Seller_name}
             </h1>
 
-            <p class="py-2 text-gray-700 dark:text-gray-400">{details}</p>
+            <p class="py-2  text-gray-400">{details}</p>
 
-            <div class="items-center mt-4 text-gray-700 dark:text-gray-200">
+            <div class="items-center mt-4  text-gray-400">
               <h1>Category: {category_name}</h1>
               <h1>Condition: {condition}</h1>
               <h1>Buying Price: {buying_price}</h1>
