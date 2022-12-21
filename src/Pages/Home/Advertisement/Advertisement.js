@@ -123,7 +123,7 @@ fetch('https://server-assignment-12.vercel.app/wishlist', {
               </div>
 
               <div class="w-2/3 p-4 md:p-4">
-                <h1 class="text-2xl font-bold text-gray-800 dark:text-white">
+                <h1 class="text-2xl font-bold   text-white">
                   {ad?.title}
                 </h1>
 

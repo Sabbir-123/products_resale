@@ -26,7 +26,7 @@ const Categories = () => {
     <div class="w-1/3 bg-cover"></div>
 
     <div class="w-2/3 p-4 md:p-4">
-        <h1 class="text-2xl font-bold text-gray-800 dark:text-white">{mobile.category_name}</h1>
+        <h1 class="text-2xl font-bold   text-white">{mobile.category_name}</h1>
 
         <div class="gridjustify-center mt-3 item-center">
           <Link to={`/category/${mobile?.category_id}`}>
