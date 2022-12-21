@@ -128,7 +128,7 @@ fetch('https://server-assignment-12.vercel.app/wishlist', {
                 </h1>
 
                 <div class="flex justify-between mt-3 item-center">
-                  <h1 class="text-lg font-bold text-gray-700 dark:text-gray-200 ">
+                  <h1 class="text-lg font-bold text-gray-200 ">
                     Price: {ad?.resale_price}$
                   </h1>
                 </div>
