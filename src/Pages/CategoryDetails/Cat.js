@@ -51,7 +51,7 @@ const Cat = ({ singlecategory , setMobileBook}) => {
     console.log(data);
    if(data.acknowledged){
 
-    swal('Wishlisted Confirmed')
+    swal('Added to cart Confirmed')
     // refetch();
    }
    else{
@@ -157,7 +157,7 @@ const Cat = ({ singlecategory , setMobileBook}) => {
                 className="btn btn-primary ml-2 text-white"
                 onClick={() => handleWishlisted(singlecategory)}
               >
-                Add To Wish{" "}
+                Add To Cart{" "}
               </label> 
                }
                {

@@ -22,6 +22,8 @@ if(token){
 
   const location = useLocation()
   const from = location.state?.from?.pathname || '/'
+
+  
     const handleSignUp = (data) => {
         console.log(data);
         setSignUPError('');
@@ -115,8 +117,8 @@ if(token){
                     {signUpError && <p className='text-red-600'>{signUpError}</p>}
                 </form>
                 <p>Already have an account <Link className='text-secondary' to="/login">Please Login</Link></p>
-                <div className="divider">OR</div>
-                <button onClick={handleGoogleSignin} className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
+                {/* <div className="divider">OR</div>
+                <button onClick={handleGoogleSignin} className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button> */}
 
             </div>
         </div>

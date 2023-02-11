@@ -35,16 +35,6 @@ const Login = () => {
               setLoginError(error.message);
           });
   }
-  // const handleGoogleSignin = () => {
-  //   signinGoogle().then(result => {
-  //     console.log(result.user)
-  //   //   setAuthToken(result.user)
-  //     setLoading(false)
-  //     navigate(from, { replace: true })
-  //   })
-  // }
-
-
 
     const handleGoogleSignIn =()=>{
         signinGoogle()
@@ -89,8 +79,8 @@ const Login = () => {
                     </div>
                 </form>
                 <p>You are new here? <Link className='text-secondary' to="/register">Create new Account</Link></p>
-                <div className="divider">OR</div>
-                <button onClick={handleGoogleSignIn} className=' btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
+                {/* <div className="divider">OR</div>
+                <button onClick={handleGoogleSignIn} className=' btn btn-outline w-full'>CONTINUE WITH GOOGLE</button> */}
             </div>
         </div>
 </div>

@@ -9,11 +9,13 @@ const Categories = () => {
         queryFn: async ()=>{
           const res = await fetch('https://server-assignment-12.vercel.app/categorymobiles')
            const data = await res.json();
-           return data.slice(0,3);
+           return data.slice(0,5);
            
         }
     })
 
+
+   
  
     return (
         <div >
