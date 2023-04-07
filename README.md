@@ -11,6 +11,12 @@
 * An Admin can remove any user and seller
 * An Admin can see the reported items
 
+# Tech Stack
+* React Js (Frontend), Express Js(Backend)
+* Axios
+* Tanstack Query 
+* React Hook Form
+* SweetAlert
 
 # Admin
 * email: a1a@aa.com
